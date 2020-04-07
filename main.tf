@@ -26,10 +26,11 @@ resource "digitalocean_record" "ipv6" {
 }
 
 resource "digitalocean_record" "cname" {
+  for_each = toset(var.dns_cnames)
+
   domain = var.domain
-  name   = var.dns_cnames[count.index]
+  name   = each.value
   ttl    = var.dns_ttl
   type   = "CNAME"
   value  = "${digitalocean_droplet.node.name}.${var.domain}."
-  count  = length(var.dns_cnames)
 }
