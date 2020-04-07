@@ -24,3 +24,12 @@ resource "digitalocean_record" "ipv6" {
   value  = digitalocean_droplet.node.ipv6_address
   count  = var.ipv6 == true ? 1 : 0
 }
+
+resource "digitalocean_record" "cname" {
+  domain = var.domain
+  name   = var.dns_cnames[count.index]
+  ttl    = var.dns_ttl
+  type   = "CNAME"
+  value  = "${digitalocean_droplet.node.name}.${var.domain}."
+  count  = length(var.dns_cnames)
+}
