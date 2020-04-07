@@ -39,6 +39,7 @@ variable "ipv6" {
 variable "dns_cnames" {
   description = "A list of DNS CNAMEs within the same domain for this node"
   type        = list(string)
+  default     = []
 }
 
 variable "dns_ttl" {
