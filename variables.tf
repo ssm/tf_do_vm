@@ -51,4 +51,5 @@ variable "dns_ttl" {
 variable "vpc_uuid" {
   type        = string
   description = "Virtual Private Cloud (VPC) network"
+  default     = null
 }
