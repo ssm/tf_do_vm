@@ -1,11 +1,11 @@
 resource "digitalocean_droplet" "node" {
-  image              = var.image
-  ipv6               = var.ipv6
-  name               = var.name
-  private_networking = var.private_networking
-  region             = var.region
-  size               = var.size
-  ssh_keys           = var.ssh_keys
+  image    = var.image
+  ipv6     = var.ipv6
+  name     = var.name
+  vpc_uuid = var.vpc_uuid
+  region   = var.region
+  size     = var.size
+  ssh_keys = var.ssh_keys
 }
 
 resource "digitalocean_record" "ipv4" {

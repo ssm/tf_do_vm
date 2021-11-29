@@ -48,8 +48,7 @@ variable "dns_ttl" {
   default     = 60
 }
 
-variable "private_networking" {
-  type        = bool
-  description = "Enable private networking interface"
-  default     = true
+variable "vpc_uuid" {
+  type        = string
+  description = "Virtual Private Cloud (VPC) network"
 }
