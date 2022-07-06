@@ -1,3 +1,6 @@
+output "droplet" {
+  value = digitalocean_droplet.node
+}
 output "urn" {
   value = digitalocean_droplet.node.urn
 }
